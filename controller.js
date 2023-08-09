@@ -61,8 +61,30 @@ module.exports = {
         }
     },
     //Ejercicio 5
-    /* Agrega un endpoint '/api/body que responda a una petición de tipo PUT con el body que el cliente envíe al hacer la petición. Ejemplo: cliente envía un body desde postman o insomnia que luce como este: { “nombre”: “Maui”, “ocupacion”: “Sensei” } Entonces, el servidor debe responder con un objeto idéntico al que envía el cliente, junto con un status de respuesta 200. */
     putBody: (req, res) => {
-        
+        res.status(200);
+        res.send(req.body);
     },
+    //Ejercicio 6
+    postSumaBody: (req, res) => {
+        const bodyObject = req.body;
+        let suma = {
+            resultado: 0
+        } 
+        suma.resultado = bodyObject.num1 + bodyObject.num2;
+        res.status(200);
+        res.send(suma);
+    },
+    //Ejercicio 7
+    /*Crea un endpoint para una petición de tipo DELETE donde envíes un ID (un número cualquiera) a través de params. Si el param contiene el ID 3, entonces responde con un status 200 y el mensaje “se ha eliminado el objeto con ID 3”, de lo contrario, si envían cualquier otro número como ID, responde con un status 404 y el mensaje “No se encontró el objeto con el ID especificado”.*/
+    deleteID: (req, res) => {
+        const id = req.params.id;
+        if(id < 3 || id > 3){
+            res.status(404);
+            res.send(`No se encontró el objeto con el ID especificado`)
+        } else {
+            res.status(200);
+            res.send(`se ha eliminado el objeto con ID 3`)
+        }
+    }
 }
