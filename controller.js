@@ -76,7 +76,6 @@ module.exports = {
         res.send(suma);
     },
     //Ejercicio 7
-    /*Crea un endpoint para una petición de tipo DELETE donde envíes un ID (un número cualquiera) a través de params. Si el param contiene el ID 3, entonces responde con un status 200 y el mensaje “se ha eliminado el objeto con ID 3”, de lo contrario, si envían cualquier otro número como ID, responde con un status 404 y el mensaje “No se encontró el objeto con el ID especificado”.*/
     deleteID: (req, res) => {
         const id = req.params.id;
         if(id < 3 || id > 3){
